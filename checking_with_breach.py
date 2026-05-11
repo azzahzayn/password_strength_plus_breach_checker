@@ -27,13 +27,16 @@ def checkstrength(pw):
     else:
         feedback.append('password should contain atleast one special character')
     if(score>=6):
-        print('strong pw')
+        print('strength: strong pw')
     elif(score>=3):
-        print('medium pw')
+        print('strength: medium pw')
     else:
-        print('weak pw')
+        print('strength: weak pw')
+        print('feedback:')
+    c=1
     for i in feedback:
-        print(i)
+        print(c,'.',i)
+        c+=1
     return     
 def checkbreach(pw):
     hashed=hashlib.sha1(pw.encode()).hexdigest().upper()
@@ -49,6 +52,6 @@ def checkbreach(pw):
                 return 
     print('no breach has happened')
     return
-password=input()
+password=input('input pw: ')
 checkstrength(password)
 checkbreach(password)
